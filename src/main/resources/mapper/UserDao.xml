@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wmyskxz.dao.UserDao">
+    <!--User findUserById();-->
+    <select id="findUserById" resultType="com.wmyskxz.entity.User">
+        SELECT * from user
+    </select>
+
+    <!--void deleteUserById(Integer id);-->
+    <delete id="deleteUserById">
+        delete from user where id = #{id}
+    </delete>
+
+    <!--void addUser(User user);-->
+    <insert id="addUser">
+       insert into user(username) values(#{username})
+    </insert>
+
+    <!--void updateUser(User user);-->
+    <update id="updateUser">
+        update user set username=#{username} where id=#{id}
+    </update>
+
+    <!--User getUserById(Integer id);-->
+    <select id="getUserById" resultType="com.wmyskxz.entity.User" parameterType="Integer">
+        SELECT * from user where id=#{id}
+    </select>
+</mapper>
